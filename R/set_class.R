@@ -40,13 +40,11 @@ set_class <- function(JSON_string) {
         "){
       callSuper(...,
       label = label,
-      template_name = template_name,
+      template_name = template_name
       ",
         paste(
-          paste(format_string(templ_data[[2]]$predicate_label)),
-          paste(format_string(templ_data[[2]]$predicate_label)),
-          sep = " = ",
-          collapse = ', \n '
+          sprintf(',\n%1$s = %1$s', format_string(templ_data[[2]]$predicate_label)),
+          collapse = ''
         ),
         ")}
       ))",
