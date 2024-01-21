@@ -1,0 +1,25 @@
+Package: martem
+Title: Machine Readable Templating
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Olga", "Lezhnina", , "olga.lezhnina@tib.eu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-2237-7725")),
+    person("Manuel", "Prinz", , "manuel.prinz@tib.eu", role = c("aut"),
+           comment = c(ORCID = "0000-0003-2151-4556")),
+    person("Markus", "Stocker", , "markus.stocker@tib.eu", role = c("aut"),
+           comment = c(ORCID = "0000-0001-5492-3212"))
+           )
+Description: What the package does (one paragraph).
+License: MIT
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports:
+    httr2,
+    jsonlite,
+    methods,
+    stringr
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
