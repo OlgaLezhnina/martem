@@ -5,7 +5,7 @@
 #' @return JSON string
 #' @export
 #'
-#' @examples extractor_orkg("R903106")
+#' @examples extractor_orkg("R937648")
 extractor_orkg <- function(template_id) {
   orkg_str <- "https://incubating.orkg.org/"
   extract_all <- list()
