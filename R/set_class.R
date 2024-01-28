@@ -1,3 +1,5 @@
+loaded_templates <- new.env()
+
 #' Set a reference class(es) for a template and its components
 #'
 #' @param JSON_string
@@ -47,7 +49,7 @@ set_class <- function(JSON_string) {
           collapse = ''
         ),
         ")}
-      ))",
+      ), where = loaded_templates)",
         sep = ""
       )
     result[[format_string(templ_data[[1]]$template_name)]] <-

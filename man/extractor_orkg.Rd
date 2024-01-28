@@ -16,5 +16,5 @@ JSON string
 Extractor function for the ORKG templates
 }
 \examples{
-extractor_orkg("R903106")
+extractor_orkg("R937648")
 }
