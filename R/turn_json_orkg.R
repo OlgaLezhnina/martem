@@ -85,7 +85,6 @@ turn_json_orkg <- function(instance) {
       class_id <-
         templ_schema[[2]]$value_class_id[format_string(templ_schema[[2]]$predicate_label) == j]
       if (startsWith(class_id, "C") == TRUE) {
-        # if it is nested
         pred_id <-
           templ_schema[[2]]$predicate_id[format_string(templ_schema[[2]]$predicate_label) == j]
         if (length(instance$field(j)) == 1) {
