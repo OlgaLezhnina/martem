@@ -9,10 +9,10 @@ loaded_templates <- new.env()
 #'
 #' @examples
 set_class <- function(JSON_string) {
-  read_all <- jsonlite::fromJSON(txt = JSON_string)
+  the$templ_info <- jsonlite::fromJSON(txt = JSON_string)
   result <- list()
-  for (t in 1:length(read_all)) {
-    templ_data <- read_all[[t]][[1]]
+  for (t in 1:length(the$templ_info)) {
+    templ_data <- the$templ_info[[t]][[1]]
     class_t <-
       paste(
         "methods::setRefClass('",

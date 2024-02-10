@@ -15,6 +15,3 @@ text
 \description{
 Format a string
 }
-\examples{
-format_string("Ab cd")
-}

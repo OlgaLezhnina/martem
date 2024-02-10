@@ -7,14 +7,10 @@
 #'
 #' @examples extractor_orkg("R937648")
 extractor_orkg <- function(template_id) {
-  orkg_str <- "https://incubating.orkg.org/"
   extract_all <- list()
   extractor_function <- function(template_id) {
-    path <-
-      paste(orkg_str, '/api/templates/', template_id, sep = '')
-    req <- httr2::request(path)
-    resp <- httr2::req_perform(req)
-    info <- httr2::resp_body_json(resp)
+    info <-
+      request_orkg(paste('/api/templates/', template_id, sep = ''))
     template_name <- format_string(info$label)
     template_class <- info$target_class
     templ_df <- data.frame(template_name, template_class)
@@ -33,14 +29,11 @@ extractor_orkg <- function(template_id) {
       } else{
         value_class_id <- component$class$id
         if (startsWith(value_class_id, "C") == T) {
-          path_n <-
-            paste(orkg_str,
-                  '/api/templates/?target_class=',
-                  value_class_id,
-                  sep = '')
-          req_n <- httr2::request(path_n)
-          resp_n <- httr2::req_perform(req_n)
-          info_n <- httr2::resp_body_json(resp_n)
+          info_n <- request_orkg(paste(
+            '/api/templates/?target_class=',
+            value_class_id,
+            sep = ''
+          ))
           nested_id <- info_n$content[[1]]$id
           nested_name <- info_n$content[[1]]$label
           if (!nested_name %in% names(extract_all)) {
@@ -52,8 +45,8 @@ extractor_orkg <- function(template_id) {
                         predicate_label,
                         value_class_id)
       i <- i + 1
-      all_comps[i,] <- comp_list
-      all_comps <- all_comps[order(all_comps$predicate_id), ]
+      all_comps[i, ] <- comp_list
+      all_comps <- all_comps[order(all_comps$predicate_id),]
     }
     extracted <-
       list(templ_df, all_comps)
