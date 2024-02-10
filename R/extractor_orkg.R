@@ -10,7 +10,7 @@ extractor_orkg <- function(template_id) {
   extract_all <- list()
   extractor_function <- function(template_id) {
     info <-
-      request_orkg(paste('/api/templates/', template_id, sep = ''))
+      request_orkg(paste("/api/templates/", template_id, sep = ""))
     template_name <- format_string(info$label)
     template_class <- info$target_class
     templ_df <- data.frame(template_name, template_class)
@@ -19,20 +19,20 @@ extractor_orkg <- function(template_id) {
       predicate_id = character(),
       predicate_label = character(),
       value_class_id = character(),
-      stringsAsFactors = F
+      stringsAsFactors = FALSE
     )
     for (component in info$properties) {
       predicate_id <- component$path$id
       predicate_label <- component$path$label
       if (is.null(component$class$id)) {
         value_class_id <- component$datatype$id
-      } else{
+      } else {
         value_class_id <- component$class$id
-        if (startsWith(value_class_id, "C") == T) {
+        if (startsWith(value_class_id, "C") == TRUE) {
           info_n <- request_orkg(paste(
-            '/api/templates/?target_class=',
+            "/api/templates/?target_class=",
             value_class_id,
-            sep = ''
+            sep = ""
           ))
           nested_id <- info_n$content[[1]]$id
           nested_name <- info_n$content[[1]]$label
@@ -46,7 +46,7 @@ extractor_orkg <- function(template_id) {
                         value_class_id)
       i <- i + 1
       all_comps[i, ] <- comp_list
-      all_comps <- all_comps[order(all_comps$predicate_id),]
+      all_comps <- all_comps[order(all_comps$predicate_id), ]
     }
     extracted <-
       list(templ_df, all_comps)
@@ -55,6 +55,6 @@ extractor_orkg <- function(template_id) {
   }
   extractor_function(template_id)
   json_extract_all <-
-    jsonlite::toJSON(extract_all, pretty = T, auto_unbox = T)
+    jsonlite::toJSON(extract_all, pretty = TRUE, auto_unbox = TRUE)
   return(json_extract_all)
 }

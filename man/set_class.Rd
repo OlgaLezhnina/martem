@@ -4,10 +4,10 @@
 \alias{set_class}
 \title{Set a reference class(es) for a template and its components}
 \usage{
-set_class(JSON_string)
+set_class(json_string)
 }
 \arguments{
-\item{JSON_string}{}
+\item{json_string}{}
 }
 \value{
 reference class(es)

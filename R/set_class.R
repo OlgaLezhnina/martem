@@ -2,14 +2,14 @@ loaded_templates <- new.env()
 
 #' Set a reference class(es) for a template and its components
 #'
-#' @param JSON_string
+#' @param json_string
 #'
 #' @return reference class(es)
 #' @export
 #'
 #' @examples
-set_class <- function(JSON_string) {
-  the$templ_info <- jsonlite::fromJSON(txt = JSON_string)
+set_class <- function(json_string) {
+  the$templ_info <- jsonlite::fromJSON(txt = json_string)
   result <- list()
   for (t in 1:length(the$templ_info)) {
     templ_data <- the$templ_info[[t]][[1]]
@@ -45,7 +45,8 @@ set_class <- function(JSON_string) {
       template_name = template_name
       ",
         paste(
-          sprintf(',\n%1$s = %1$s', format_string(templ_data[[2]]$predicate_label)),
+          sprintf(',\n%1$s = %1$s',
+                  format_string(templ_data[[2]]$predicate_label)),
           collapse = ''
         ),
         ")}

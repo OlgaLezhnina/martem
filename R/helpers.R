@@ -35,7 +35,7 @@ with_host <- function(route) {
 #' @examples
 generate_uid <- function() {
   i <- 0
-  return (function() {
+  return(function() {
     i <<- i + 1
     return(i)
   })

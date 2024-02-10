@@ -13,31 +13,31 @@ df_structure <- function(df) {
   index <- list()
   result[["columns"]] <- list()
   for (i in 1:ncol(df)) {
-    column = list()
+    column <- list()
     column[["@type"]] <- list(with_host("class/Column"))
     column[["titles"]] <- colnames(df)[i]
     column[["number"]] <- i
-    column[["@id"]] <- paste("_:n", the$uid() , sep = "")
+    column[["@id"]] <- paste("_:n", the$uid(), sep = "")
     index <- append(index, column[["@id"]])
     result[["columns"]] <-
       append(result[["columns"]], list(column))
   }
   result[["rows"]] <- list()
   for (i in 1:nrow(df)) {
-    row = list()
+    row <- list()
     row[["@type"]] <- list(with_host("class/Row"))
     row[["number"]] <- i
     row[["titles"]] <- rownames(df)[i]
-    row[["cells"]] = list()
+    row[["cells"]] <- list()
     for (y in 1:ncol(df)) {
-      cell = list()
+      cell <- list()
       cell[["@type"]] <- list(with_host("class/Cell"))
       if (!is.null(df[[y]][[i]])) {
-        cell[['value']] <- as.character(df[[y]][[i]])
-      } else{
-        cell['value'] <- list(NULL)
+        cell[["value"]] <- as.character(df[[y]][[i]])
+      } else {
+        cell["value"] <- list(NULL)
       }
-      cell[['column']] <- index[[y]]
+      cell[["column"]] <- index[[y]]
       row[["cells"]] <- append(row[["cells"]], list(cell))
     }
     result[["rows"]] <- append(result[["rows"]], list(row))
@@ -71,20 +71,20 @@ turn_json_orkg <- function(instance) {
     field_list <-
       stringr::str_split(format_string(templ_schema[[2]]$predicate_label), " ")
     result <- list()
-    result[['@id']] <- paste("_:n", the$uid(), sep = "")
+    result[["@id"]] <- paste("_:n", the$uid(), sep = "")
     result[["label"]] <- instance$label
     template_class <- templ_schema[[1]]$template_class
     result[["@type"]] <-
       list(paste(the$hostname, "class/", template_class, sep = ""))
     for (j in field_list) {
       if (length(instance$field(j)) == 1 &&
-          is.character(instance$field(j)) &&
-          (instance$field(j) == "none")) {
+            is.character(instance$field(j)) &&
+            (instance$field(j) == "none")) {
         next
       }
       class_id <-
         templ_schema[[2]]$value_class_id[format_string(templ_schema[[2]]$predicate_label) == j]
-      if (startsWith(class_id, "C") == T) {
+      if (startsWith(class_id, "C") == TRUE) {
         # if it is nested
         pred_id <-
           templ_schema[[2]]$predicate_id[format_string(templ_schema[[2]]$predicate_label) == j]
@@ -114,6 +114,6 @@ turn_json_orkg <- function(instance) {
   result <- write_info(instance)
   result[["@context"]] <- context
   inst_json <-
-    jsonlite::toJSON(result, pretty = T, auto_unbox = T)
+    jsonlite::toJSON(result, pretty = TRUE, auto_unbox = TRUE)
   return(inst_json)
 }
