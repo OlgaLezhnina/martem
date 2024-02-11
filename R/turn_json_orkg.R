@@ -75,32 +75,32 @@ turn_json_orkg <- function(instance) {
     result[["label"]] <- instance$label
     result[["@type"]] <-
       list(with_host("class/", templ_schema[[1]]$template_class))
-    for (j in field_list) {
-      if (length(instance$field(j)) == 1 &&
-          is.character(instance$field(j)) &&
-          (instance$field(j) == "none")) {
+    for (field_name in field_list) {
+      if (length(instance$field(field_name)) == 1 &&
+          is.character(instance$field(field_name)) &&
+          (instance$field(field_name) == "none")) {
         next
       }
       class_id <-
-        templ_schema[[2]]$value_class_id[format_string(templ_schema[[2]]$predicate_label) == j]
+        templ_schema[[2]]$value_class_id[format_string(templ_schema[[2]]$predicate_label) == field_name]
       if (startsWith(class_id, "C") == TRUE) {
         pred_id <-
-          templ_schema[[2]]$predicate_id[format_string(templ_schema[[2]]$predicate_label) == j]
-        if (length(instance$field(j)) == 1) {
-          result[[pred_id]] <- write_info(instance$field(j))
+          templ_schema[[2]]$predicate_id[format_string(templ_schema[[2]]$predicate_label) == field_name]
+        if (length(instance$field(field_name)) == 1) {
+          result[[pred_id]] <- write_info(instance$field(field_name))
         } else {
-          result[[pred_id]] <- lapply(instance$field(j), write_info)
+          result[[pred_id]] <- lapply(instance$field(field_name), write_info)
         }
         context[[pred_id]] <<-
           with_host("property/", pred_id)
       } else {
-        if (j %in% names(instance$initFields())) {
+        if (field_name %in% names(instance$initFields())) {
           pred_id <-
-            templ_schema[[2]]$predicate_id[format_string(templ_schema[[2]]$predicate_label) == j]
-          if (is.data.frame(instance$field(j))) {
-            result[[pred_id]] <- df_structure(instance$field(j))
+            templ_schema[[2]]$predicate_id[format_string(templ_schema[[2]]$predicate_label) == field_name]
+          if (is.data.frame(instance$field(field_name))) {
+            result[[pred_id]] <- df_structure(instance$field(field_name))
           } else {
-            result[[pred_id]] <- list(instance$field(j))
+            result[[pred_id]] <- list(instance$field(field_name))
           }
           context[[pred_id]] <<-
             with_host("property/", pred_id)
