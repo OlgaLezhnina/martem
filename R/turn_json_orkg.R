@@ -73,13 +73,12 @@ turn_json_orkg <- function(instance) {
     result <- list()
     result[["@id"]] <- paste("_:n", the$uid(), sep = "")
     result[["label"]] <- instance$label
-    template_class <- templ_schema[[1]]$template_class
     result[["@type"]] <-
-      list(paste(the$hostname, "class/", template_class, sep = ""))
+      list(with_host("class/", templ_schema[[1]]$template_class))
     for (j in field_list) {
       if (length(instance$field(j)) == 1 &&
-            is.character(instance$field(j)) &&
-            (instance$field(j) == "none")) {
+          is.character(instance$field(j)) &&
+          (instance$field(j) == "none")) {
         next
       }
       class_id <-
@@ -93,7 +92,7 @@ turn_json_orkg <- function(instance) {
           result[[pred_id]] <- lapply(instance$field(j), write_info)
         }
         context[[pred_id]] <<-
-          paste(the$hostname, "property/", pred_id, sep = "")
+          with_host("property/", pred_id)
       } else {
         if (j %in% names(instance$initFields())) {
           pred_id <-
@@ -104,7 +103,7 @@ turn_json_orkg <- function(instance) {
             result[[pred_id]] <- list(instance$field(j))
           }
           context[[pred_id]] <<-
-            paste(the$hostname, "property/", pred_id, sep = "")
+            with_host("property/", pred_id)
         }
       }
     }

@@ -4,10 +4,13 @@
 \alias{with_host}
 \title{Title}
 \usage{
-with_host(route)
+with_host(...)
 }
 \arguments{
-\item{route}{}
+\item{...}{\itemize{
+\item one or more arguments to be concatenated
+representing the route of the URL
+}}
 }
 \description{
 Title
