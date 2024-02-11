@@ -6,10 +6,10 @@
 #'
 #'
 #' @examples
-df_structure <- function(df) {
+df_structure <- function(df, label) {
   result <- list()
   result[["@type"]] <- list(with_host("class/Table"))
-  result[["label"]] <- "Table"
+  result[["label"]] <- label
   index <- list()
   result[["columns"]] <- list()
   for (i in seq_len(ncol(df))) {
@@ -99,7 +99,13 @@ turn_json_orkg <- function(instance) {
           pred_id <-
             templ_schema[[2]]$predicate_id[written_label == field_name]
           if (is.data.frame(instance$field(field_name))) {
-            result[[pred_id]] <- df_structure(instance$field(field_name))
+            result[[pred_id]] <- df_structure(
+              instance$field(field_name),
+              label = "Table")
+          } else if (is.tuple(instance$field(field_name))) {
+            result[[pred_id]] <- df_structure(
+              df = instance$field(field_name)[[1]],
+              label = instance$field(field_name)[[2]])
           } else {
             result[[pred_id]] <- list(instance$field(field_name))
           }
