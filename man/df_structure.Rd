@@ -4,7 +4,7 @@
 \alias{df_structure}
 \title{Title}
 \usage{
-df_structure(df, label)
+df_structure(df)
 }
 \arguments{
 \item{df}{}
