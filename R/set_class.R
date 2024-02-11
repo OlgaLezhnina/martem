@@ -11,7 +11,7 @@ loaded_templates <- new.env()
 set_class <- function(json_string) {
   the$templ_info <- jsonlite::fromJSON(txt = json_string)
   result <- list()
-  for (t in 1:length(the$templ_info)) {
+  for (t in seq_along(the$templ_info)) {
     templ_data <- the$templ_info[[t]][[1]]
     class_t <-
       paste(
@@ -45,9 +45,9 @@ set_class <- function(json_string) {
       template_name = template_name
       ",
         paste(
-          sprintf(',\n%1$s = %1$s',
+          sprintf(",\n%1$s = %1$s",
                   format_string(templ_data[[2]]$predicate_label)),
-          collapse = ''
+          collapse = ""
         ),
         ")}
       ), where = loaded_templates)",

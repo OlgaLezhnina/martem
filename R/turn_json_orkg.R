@@ -12,7 +12,7 @@ df_structure <- function(df) {
   result[["label"]] <- "Table"
   index <- list()
   result[["columns"]] <- list()
-  for (i in 1:ncol(df)) {
+  for (i in seq_len(ncol(df))) {
     column <- list()
     column[["@type"]] <- list(with_host("class/Column"))
     column[["titles"]] <- colnames(df)[i]
@@ -23,13 +23,13 @@ df_structure <- function(df) {
       append(result[["columns"]], list(column))
   }
   result[["rows"]] <- list()
-  for (i in 1:nrow(df)) {
+  for (i in seq_len(nrow(df))) {
     row <- list()
     row[["@type"]] <- list(with_host("class/Row"))
     row[["number"]] <- i
     row[["titles"]] <- rownames(df)[i]
     row[["cells"]] <- list()
-    for (y in 1:ncol(df)) {
+    for (y in seq_len(ncol(df))) {
       cell <- list()
       cell[["@type"]] <- list(with_host("class/Cell"))
       if (!is.null(df[[y]][[i]])) {
