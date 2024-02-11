@@ -77,15 +77,16 @@ turn_json_orkg <- function(instance) {
       list(with_host("class/", templ_schema[[1]]$template_class))
     for (field_name in field_list) {
       if (length(instance$field(field_name)) == 1 &&
-          is.character(instance$field(field_name)) &&
-          (instance$field(field_name) == "none")) {
+            is.character(instance$field(field_name)) &&
+            (instance$field(field_name) == "none")) {
         next
       }
+      written_label <- format_string(templ_schema[[2]]$predicate_label)
       class_id <-
-        templ_schema[[2]]$value_class_id[format_string(templ_schema[[2]]$predicate_label) == field_name]
+        templ_schema[[2]]$value_class_id[written_label == field_name]
       if (startsWith(class_id, "C") == TRUE) {
         pred_id <-
-          templ_schema[[2]]$predicate_id[format_string(templ_schema[[2]]$predicate_label) == field_name]
+          templ_schema[[2]]$predicate_id[written_label == field_name]
         if (length(instance$field(field_name)) == 1) {
           result[[pred_id]] <- write_info(instance$field(field_name))
         } else {
@@ -96,7 +97,7 @@ turn_json_orkg <- function(instance) {
       } else {
         if (field_name %in% names(instance$initFields())) {
           pred_id <-
-            templ_schema[[2]]$predicate_id[format_string(templ_schema[[2]]$predicate_label) == field_name]
+            templ_schema[[2]]$predicate_id[written_label == field_name]
           if (is.data.frame(instance$field(field_name))) {
             result[[pred_id]] <- df_structure(instance$field(field_name))
           } else {
