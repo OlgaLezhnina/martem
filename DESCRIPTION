@@ -18,7 +18,6 @@ Imports:
     httr2,
     jsonlite,
     methods,
-    sets,
     stringr
 Suggests: 
     knitr,
