@@ -1,15 +1,15 @@
 #' Title
 #'
-#' @param df
+#' @param df, label
 #'
 #' @return
 #'
 #'
 #' @examples
-df_structure <- function(df) {
+df_structure <- function(df, label) {
   result <- list()
   result[["@type"]] <- list(with_host("class/Table"))
-  result[["label"]] <- "Table"
+  result[["label"]] <- label
   index <- list()
   result[["columns"]] <- list()
   for (i in seq_len(ncol(df))) {
@@ -44,6 +44,25 @@ df_structure <- function(df) {
   }
   result[["@id"]] <- paste("_:n", the$uid(), sep = "")
   return(result)
+}
+
+#' Title
+#'
+#' @param input
+#'
+#' @return
+#'
+#'
+#' @examples
+differ_type <- function(input) {
+  if (is.data.frame(input)) {
+    output <- df_structure(df = input, label = "Table")
+  } else if (class(input) == "tuple") {
+    output <- df_structure(df = input[[1]], label = input[[2]])
+  } else {
+    output <- list(input)
+  }
+  return(output)
 }
 
 #' Turn an instance of a reference class into ORKG-harvestable JSON-LD
@@ -98,11 +117,8 @@ turn_json_orkg <- function(instance) {
         if (field_name %in% names(instance$initFields())) {
           pred_id <-
             templ_schema[[2]]$predicate_id[written_label == field_name]
-          if (is.data.frame(instance$field(field_name))) {
-            result[[pred_id]] <- df_structure(instance$field(field_name))
-          } else {
-            result[[pred_id]] <- list(instance$field(field_name))
-          }
+          result[[pred_id]] <-
+            differ_type(instance$field(field_name))
           context[[pred_id]] <<-
             with_host("property/", pred_id)
         }
