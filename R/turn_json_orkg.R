@@ -1,6 +1,7 @@
 #' Title
 #'
-#' @param df, label
+#' @param df
+#' @param label
 #'
 #' @return
 #'
@@ -55,9 +56,9 @@ df_structure <- function(df, label) {
 #'
 #' @examples
 differ_type <- function(input) {
-  if (is.data.frame(input)) {
+  if (methods::is(input, "data.frame")) {
     output <- df_structure(df = input, label = "Table")
-  } else if (class(input) == "tuple") {
+  } else if (methods::is(input, "tuple")) {
     output <- df_structure(df = input[[1]], label = input[[2]])
   } else {
     output <- list(input)

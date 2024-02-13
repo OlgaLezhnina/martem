@@ -7,7 +7,7 @@
 df_structure(df, label)
 }
 \arguments{
-\item{df, }{label}
+\item{label}{}
 }
 \description{
 Title
