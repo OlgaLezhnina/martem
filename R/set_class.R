@@ -2,14 +2,16 @@ loaded_templates <- new.env()
 
 #' Set a reference class(es) for a template and its components
 #'
-#' @param json_string
+#' @param template_id
+#'
+#' @param
 #'
 #' @return reference class(es)
 #' @export
 #'
 #' @examples
-set_class <- function(json_string) {
-  the$templ_info <- jsonlite::fromJSON(txt = json_string)
+set_class <- function(template_id) {
+  the$templ_info <- extractor_orkg(template_id)
   result <- list()
   for (t in seq_along(the$templ_info)) {
     templ_data <- the$templ_info[[t]][[1]]

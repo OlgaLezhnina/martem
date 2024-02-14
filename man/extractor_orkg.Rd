@@ -9,12 +9,6 @@ extractor_orkg(template_id)
 \arguments{
 \item{template_id}{}
 }
-\value{
-JSON string
-}
 \description{
 Extractor function for the ORKG templates
-}
-\examples{
-extractor_orkg("R937648")
 }

@@ -2,10 +2,10 @@
 #'
 #' @param template_id
 #'
-#' @return JSON string
-#' @export
+#' @return
 #'
-#' @examples extractor_orkg("R937648")
+#' @examples
+#'
 extractor_orkg <- function(template_id) {
   extract_all <- list()
   extractor_function <- function(template_id) {
@@ -54,7 +54,5 @@ extractor_orkg <- function(template_id) {
     return(extract_all)
   }
   extractor_function(template_id)
-  json_extract_all <-
-    jsonlite::toJSON(extract_all, pretty = TRUE, auto_unbox = TRUE)
-  return(json_extract_all)
+  return(extract_all)
 }
