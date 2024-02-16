@@ -1,5 +1,21 @@
 loaded_templates <- new.env()
 
+#' Title
+#'
+#' @param name_class
+#'
+#' @return
+#'
+#' @examples
+unseal_name <- function(name_class) {
+  if (!methods::isSealedClass(name_class)) {
+    name <- format_string(name_class)
+  } else {
+    name <- paste(format_string(name_class), "_orkg", sep = "")
+  }
+  return(name)
+}
+
 #' Set a reference class(es) for a template and its components
 #'
 #' @param template_id
@@ -18,7 +34,7 @@ load_reference_classes <- function(template_id) {
     reference_class_template <-
       paste(
         "methods::setRefClass('",
-        format_string(templ_data[[1]]$template_name),
+        unseal_name(templ_data[[1]]$template_name),
         "',
       fields = list(
       label = 'character',
