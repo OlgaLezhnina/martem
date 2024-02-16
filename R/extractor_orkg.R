@@ -28,12 +28,14 @@ extractor_orkg <- function(template_id) {
         value_class_id <- component$datatype$id
       } else {
         value_class_id <- component$class$id
-        if (startsWith(value_class_id, "C") == TRUE) {
-          info_n <- request_orkg(paste(
-            "/api/templates/?target_class=",
-            value_class_id,
-            sep = ""
-          ))
+        info_n <- request_orkg(paste(
+          "/api/templates/?target_class=",
+          value_class_id,
+          sep = ""
+        ))
+        if (!length(info_n$content)) {
+          next
+        } else {
           nested_id <- info_n$content[[1]]$id
           nested_name <- info_n$content[[1]]$label
           if (!nested_name %in% names(extract_all)) {
