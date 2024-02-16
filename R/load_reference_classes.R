@@ -15,7 +15,7 @@ load_reference_classes <- function(template_id) {
   result <- list()
   for (t in seq_along(the$templ_info)) {
     templ_data <- the$templ_info[[t]][[1]]
-    class_t <-
+    reference_class_template <-
       paste(
         "methods::setRefClass('",
         format_string(templ_data[[1]]$template_name),
@@ -56,7 +56,7 @@ load_reference_classes <- function(template_id) {
         sep = ""
       )
     result[[format_string(templ_data[[1]]$template_name)]] <-
-      eval(parse(text = class_t))
+      eval(parse(text = reference_class_template))
   }
   return(result)
 }
