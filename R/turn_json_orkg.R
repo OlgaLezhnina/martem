@@ -102,9 +102,9 @@ turn_json_orkg <- function(instance) {
         next
       }
       written_label <- format_string(templ_schema[[2]]$predicate_label)
-      class_id <-
-        templ_schema[[2]]$value_class_id[written_label == field_name]
-      if (startsWith(class_id, "C") == TRUE) {
+      nested_templ <-
+        templ_schema[[2]]$nested_template[written_label == field_name]
+      if (nested_templ) {
         pred_id <-
           templ_schema[[2]]$predicate_id[written_label == field_name]
         if (length(instance$field(field_name)) == 1) {

@@ -19,6 +19,7 @@ extractor_orkg <- function(template_id) {
       predicate_id = character(),
       predicate_label = character(),
       value_class_id = character(),
+      nested_template = logical(),
       stringsAsFactors = FALSE
     )
     for (component in info$properties) {
@@ -26,6 +27,7 @@ extractor_orkg <- function(template_id) {
       predicate_label <- component$path$label
       if (is.null(component$class$id)) {
         value_class_id <- component$datatype$id
+        nested_template <- FALSE
       } else {
         value_class_id <- component$class$id
         info_n <- request_orkg(paste(
@@ -34,8 +36,9 @@ extractor_orkg <- function(template_id) {
           sep = ""
         ))
         if (!length(info_n$content)) {
-          next
+          nested_template <- FALSE
         } else {
+          nested_template <- TRUE
           nested_id <- info_n$content[[1]]$id
           nested_name <- info_n$content[[1]]$label
           if (!nested_name %in% names(extract_all)) {
@@ -45,7 +48,8 @@ extractor_orkg <- function(template_id) {
       }
       comp_list <- list(predicate_id,
                         predicate_label,
-                        value_class_id)
+                        value_class_id,
+                        nested_template)
       i <- i + 1
       all_comps[i, ] <- comp_list
       all_comps <- all_comps[order(all_comps$predicate_id), ]
