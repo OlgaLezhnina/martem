@@ -8,7 +8,7 @@
 #'
 #' @examples
 request_orkg <- function(route) {
-  path <- with_hostname(route)
+  path <- with_host(route)
   req <- httr2::request(path)
   resp <- httr2::req_perform(req)
   info <- httr2::resp_body_json(resp)
