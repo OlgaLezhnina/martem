@@ -16,20 +16,6 @@ format_string  <- function(text) {
 
 #' Title
 #'
-#' @param ... - one or more arguments to be concatenated
-#' representing the route of the URL
-#'
-#' @return
-#'
-#'
-#' @examples
-with_host <- function(...) {
-  return(paste(the$hostname, ..., sep = ""))
-}
-
-
-#' Title
-#'
 #' @return
 #'
 #'
