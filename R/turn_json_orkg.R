@@ -47,6 +47,23 @@ df_structure <- function(df, label) {
   return(result)
 }
 
+#' Recognizes the length of input to apply of lapply a function
+#'
+#' @param input
+#' @param func
+#'
+#' @return
+#'
+#' @examples
+differ_length <- function(input, func) {
+  if (length(input) == 1) {
+    output <- func(input)
+  } else {
+    output <- lapply(input, func)
+  }
+  return(output)
+}
+
 #' Title
 #'
 #' @param input
@@ -107,11 +124,7 @@ turn_json_orkg <- function(instance) {
       if (nested_templ) {
         pred_id <-
           templ_schema[[2]]$predicate_id[written_label == field_name]
-        if (length(instance$field(field_name)) == 1) {
-          result[[pred_id]] <- write_info(instance$field(field_name))
-        } else {
-          result[[pred_id]] <- lapply(instance$field(field_name), write_info)
-        }
+        result[[pred_id]] <- differ_length(instance$field(field_name), write_info)
         context[[pred_id]] <<-
           with_host("property/", pred_id)
       } else {
