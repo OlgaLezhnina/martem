@@ -7,10 +7,10 @@
 format_string(text)
 }
 \arguments{
-\item{text}{}
+\item{text}{A character vector}
 }
 \value{
-text
+A character vector formatted in the required way
 }
 \description{
 Format a string

@@ -2,7 +2,7 @@
 % Please edit documentation in R/hostname.R
 \name{with_host}
 \alias{with_host}
-\title{Title}
+\title{Concatenates a hostname with other parameters}
 \usage{
 with_host(...)
 }
@@ -12,6 +12,9 @@ with_host(...)
 representing the route of the URL
 }}
 }
+\value{
+A concatenated URL
+}
 \description{
-Title
+Concatenates a hostname with other parameters
 }

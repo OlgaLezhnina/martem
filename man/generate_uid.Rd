@@ -2,10 +2,15 @@
 % Please edit documentation in R/helpers.R
 \name{generate_uid}
 \alias{generate_uid}
-\title{Title}
+\title{Generate a counting function
+used for assigning unique identifiers}
 \usage{
 generate_uid()
 }
+\value{
+The counting function
+}
 \description{
-Title
+Generate a counting function
+used for assigning unique identifiers
 }

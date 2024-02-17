@@ -2,10 +2,13 @@
 % Please edit documentation in R/hostname.R
 \name{show_hostname}
 \alias{show_hostname}
-\title{Title}
+\title{Get the hostname}
 \usage{
 show_hostname()
 }
+\value{
+The hostname
+}
 \description{
-Title
+Get the hostname
 }

@@ -2,13 +2,17 @@
 % Please edit documentation in R/request_orkg.R
 \name{request_orkg}
 \alias{request_orkg}
-\title{Title}
+\title{Request the ORKG REST API}
 \usage{
 request_orkg(route)
 }
 \arguments{
-\item{route}{}
+\item{route}{The part of path for requesting the ORKG REST API
+which follows the hostname}
+}
+\value{
+Requested information about an ORKG object
 }
 \description{
-Title
+Request the ORKG REST API
 }

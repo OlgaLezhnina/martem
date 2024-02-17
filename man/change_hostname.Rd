@@ -2,13 +2,16 @@
 % Please edit documentation in R/hostname.R
 \name{change_hostname}
 \alias{change_hostname}
-\title{Title}
+\title{Change the hostname}
 \usage{
 change_hostname(hostname)
 }
 \arguments{
-\item{hostname}{}
+\item{hostname}{A new hostname, a string starting with "https://"}
+}
+\value{
+The new hostname
 }
 \description{
-Title
+Change the hostname
 }
