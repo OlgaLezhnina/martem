@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_reference_classes.R
 \name{load_reference_classes}
 \alias{load_reference_classes}
-\title{Set a reference class(es) for a template and its components}
+\title{Load reference class(es) for a template and its components}
 \usage{
 load_reference_classes(template_id)
 }
@@ -13,5 +13,5 @@ load_reference_classes(template_id)
 reference class(es)
 }
 \description{
-Set a reference class(es) for a template and its components
+Load reference class(es) for a template and its components
 }
