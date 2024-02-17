@@ -1,8 +1,8 @@
 #' Format a string
 #'
-#' @param text
+#' @param text A character vector
 #'
-#' @return text
+#' @return A character vector formatted in the required way
 #'
 #'
 #'
@@ -14,9 +14,10 @@ format_string  <- function(text) {
   ))
 }
 
-#' Title
+#' Generate a counting function
+#' used for assigning unique identifiers
 #'
-#' @return
+#' @return The counting function
 #'
 #'
 #' @examples

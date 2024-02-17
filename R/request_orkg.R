@@ -1,13 +1,14 @@
-#' Title
+#' Request the ORKG REST API
 #'
-#' @param route
+#' @param route The part of path for requesting the ORKG REST API
+#'which follows the hostname
 #'
-#' @return
+#' @return Requested information about an ORKG object
 #'
 #'
 #' @examples
 request_orkg <- function(route) {
-  path <- paste(the$hostname, route, sep = "")
+  path <- with_hostname(route)
   req <- httr2::request(path)
   resp <- httr2::req_perform(req)
   info <- httr2::resp_body_json(resp)

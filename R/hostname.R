@@ -1,18 +1,20 @@
 the$hostname <- "https://incubating.orkg.org/"
-#' Title
+
+#' Get the hostname
 #'
-#' @return
+#' @return The hostname
 #' @export
 #'
 #' @examples
 show_hostname <- function() {
   return(the$hostname)
 }
-#' Title
+
+#' Change the hostname
 #'
-#' @param hostname
+#' @param hostname A new hostname, a string starting with "https://"
 #'
-#' @return
+#' @return The new hostname
 #' @export
 #'
 #' @examples
@@ -21,12 +23,12 @@ change_hostname <- function(hostname) {
   return(hostname)
 }
 
-#' Title
+#' Concatenates a hostname with other parameters
 #'
 #' @param ... - one or more arguments to be concatenated
 #' representing the route of the URL
 #'
-#' @return
+#' @return A concatenated URL
 #'
 #'
 #' @examples
