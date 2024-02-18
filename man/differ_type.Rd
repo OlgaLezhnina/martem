@@ -12,7 +12,7 @@ differ_type(input)
 \item{input}{A dataframe, a tuple, or another data type}
 }
 \value{
-The result that is the list of input if the df_structure is not applied,
+The result, which is a list if the df_structure is not applied,
 and the output of the df_structure if it should
 }
 \description{

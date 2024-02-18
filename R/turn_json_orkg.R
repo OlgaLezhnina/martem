@@ -64,7 +64,7 @@ differ_length <- function(input, func) {
 #' to check whether the df_structure function should be used,
 #' and if it should, what is the lable of the data
 #' @param input A dataframe, a tuple, or another data type
-#' @return The result that is the list of input if the df_structure is not applied,
+#' @return The result, which is a list if the df_structure is not applied,
 #' and the output of the df_structure if it should
 #'
 differ_type <- function(input) {
@@ -120,7 +120,8 @@ turn_json_orkg <- function(instance) {
       if (nested_templ) {
         pred_id <-
           templ_schema[[2]]$predicate_id[written_label == field_name]
-        result[[pred_id]] <- differ_length(instance$field(field_name), write_info)
+        result[[pred_id]] <-
+          differ_length(instance$field(field_name), write_info)
         context[[pred_id]] <<-
           with_host("property/", pred_id)
       } else {
