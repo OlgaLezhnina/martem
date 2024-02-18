@@ -32,13 +32,12 @@ martem::show_hostname()
 martem::change_hostname("https://incubating.orkg.org/")
 ## load reference classes for a template
 tp <- martem::load_reference_classes("R937648")  
-## check which templates are included if this one is nested
+## check which templates are included 
 names(tp)
-## see information about a template you need
+## see information about any template you need
 tp$measurement_scale
-## most important, which fields you can use
-## TODO remove the "name, class, components" and show only useful ones
-tp$measurement_scale$fields()
+## see which fields you can use for writing an instance
+martem::show_fields(tp$measurement_scale)
 ## write your instance using fields of your choice
 my_instance <- tp$measurement_scale(label = "my_scale")
 ## apply a function to write it as a JSON string
