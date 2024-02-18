@@ -16,3 +16,9 @@ JSON string
 \description{
 Turn an instance of a reference class into ORKG-harvestable JSON-LD
 }
+\examples{
+tp <- load_reference_classes("R937648")
+my_instance <- tp$measurement_scale(label = "my_scale")
+my_json <- turn_json_orkg(my_instance)
+
+}

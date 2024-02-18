@@ -16,6 +16,6 @@ reference classes for the template and its components
 Load reference classes for a template and its components
 }
 \examples{
-load_reference_classes("R937648")
+tp <- load_reference_classes("R937648")
 
 }

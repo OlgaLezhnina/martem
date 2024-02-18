@@ -83,7 +83,9 @@ differ_type <- function(input) {
 #' that is an R object containing active binding
 #' @return JSON string
 #' @export
-#' @examples
+#' @examples tp <- load_reference_classes("R937648")
+#' my_instance <- tp$measurement_scale(label = "my_scale")
+#' my_json <- turn_json_orkg(my_instance)
 #'
 turn_json_orkg <- function(instance) {
   the$uid <- generate_uid()

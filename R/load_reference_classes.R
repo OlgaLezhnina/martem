@@ -66,7 +66,7 @@ extractor_orkg <- function(template_id) {
 #' @param template_id The ID of an ORKG template
 #' @return reference classes for the template and its components
 #' @export
-#' @examples load_reference_classes("R937648")
+#' @examples tp <- load_reference_classes("R937648")
 #'
 load_reference_classes <- function(template_id) {
   the$templ_info <- extractor_orkg(template_id)
