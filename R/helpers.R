@@ -21,3 +21,25 @@ generate_uid <- function() {
     return(i)
   })
 }
+
+#' Title
+#'
+#' @param ref_class A reference class based on a template
+#' @return The string enlisting all fields for writing an instance
+#' @export
+#' @examples tp <- load_reference_classes("R937648")
+#' show_fields(tp$measurement_scale)
+#'
+show_fields <- function(ref_class) {
+  output <- list()
+  all_fields <- ref_class$fields()
+  written <- c("template_name",
+               "template_class",
+               "components")
+  for (field in names(all_fields)) {
+    if (!field %in% written) {
+      output <- append(output, field)
+    }
+  }
+  return(paste(output))
+}

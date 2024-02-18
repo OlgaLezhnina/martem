@@ -2,5 +2,6 @@
 
 export(change_hostname)
 export(load_reference_classes)
+export(show_fields)
 export(show_hostname)
 export(turn_json_orkg)
