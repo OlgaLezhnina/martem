@@ -1,12 +1,11 @@
-#' Title
+#' Writes dataframes and tuples into JSON-LD
+#' for the internal use
+#' @param df A dataframe or a tuple
+#' @param label A character that is the data label,
+#' for a tuple is given by the user and should follow the order (data, label),
+#' for a dataframe is written as the default "Table"
+#' @return JSOn-LD of the dataframe of a tuple
 #'
-#' @param df
-#' @param label
-#'
-#' @return
-#'
-#'
-#' @examples
 df_structure <- function(df, label) {
   result <- list()
   result[["@type"]] <- list(with_host("class/Table"))
@@ -48,13 +47,10 @@ df_structure <- function(df, label) {
 }
 
 #' Recognizes the length of input to apply of lapply a function
+#' @param input A single element of a list
+#' @param func A function to be applied to the input
+#' @return The result of the function applied in the differentiated way
 #'
-#' @param input
-#' @param func
-#'
-#' @return
-#'
-#' @examples
 differ_length <- function(input, func) {
   if (length(input) == 1) {
     output <- func(input)
@@ -64,14 +60,13 @@ differ_length <- function(input, func) {
   return(output)
 }
 
-#' Title
+#' Recognizes the type of an input as a dataframe, a tuple, or anything else
+#' to check whether the df_structure function should be used,
+#' and if it should, what is the lable of the data
+#' @param input A dataframe, a tuple, or another data type
+#' @return The result that is the list of input if the df_structure is not applied,
+#' and the output of the df_structure if it should
 #'
-#' @param input
-#'
-#' @return
-#'
-#'
-#' @examples
 differ_type <- function(input) {
   if (methods::is(input, "data.frame")) {
     output <- df_structure(df = input, label = "Table")
@@ -84,13 +79,12 @@ differ_type <- function(input) {
 }
 
 #' Turn an instance of a reference class into ORKG-harvestable JSON-LD
-#'
-#' @param instance
-#'
+#' @param instance An instance of a reference class
+#' that is an R object containing active binding
 #' @return JSON string
 #' @export
-#'
 #' @examples
+#'
 turn_json_orkg <- function(instance) {
   the$uid <- generate_uid()
   context <- list()

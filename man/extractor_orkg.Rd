@@ -7,7 +7,11 @@
 extractor_orkg(template_id)
 }
 \arguments{
-\item{template_id}{}
+\item{template_id}{The ID of an ORKG template}
+}
+\value{
+An R object that contains information about the template
+and its components for the internal use
 }
 \description{
 Extractor function for the ORKG templates

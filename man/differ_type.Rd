@@ -2,13 +2,21 @@
 % Please edit documentation in R/turn_json_orkg.R
 \name{differ_type}
 \alias{differ_type}
-\title{Title}
+\title{Recognizes the type of an input as a dataframe, a tuple, or anything else
+to check whether the df_structure function should be used,
+and if it should, what is the lable of the data}
 \usage{
 differ_type(input)
 }
 \arguments{
-\item{input}{}
+\item{input}{A dataframe, a tuple, or another data type}
+}
+\value{
+The result that is the list of input if the df_structure is not applied,
+and the output of the df_structure if it should
 }
 \description{
-Title
+Recognizes the type of an input as a dataframe, a tuple, or anything else
+to check whether the df_structure function should be used,
+and if it should, what is the lable of the data
 }

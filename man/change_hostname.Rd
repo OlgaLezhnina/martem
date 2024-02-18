@@ -15,3 +15,7 @@ The new hostname
 \description{
 Change the hostname
 }
+\examples{
+change_hostname("https://incubating.orkg.org/")
+
+}

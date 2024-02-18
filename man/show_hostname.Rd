@@ -12,3 +12,7 @@ The hostname
 \description{
 Get the hostname
 }
+\examples{
+show_hostname()
+
+}

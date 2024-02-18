@@ -7,7 +7,12 @@
 differ_length(input, func)
 }
 \arguments{
-\item{func}{}
+\item{input}{A single element of a list}
+
+\item{func}{A function to be applied to the input}
+}
+\value{
+The result of the function applied in the differentiated way
 }
 \description{
 Recognizes the length of input to apply of lapply a function

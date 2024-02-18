@@ -2,13 +2,22 @@
 % Please edit documentation in R/turn_json_orkg.R
 \name{df_structure}
 \alias{df_structure}
-\title{Title}
+\title{Writes dataframes and tuples into JSON-LD
+for the internal use}
 \usage{
 df_structure(df, label)
 }
 \arguments{
-\item{label}{}
+\item{df}{A dataframe or a tuple}
+
+\item{label}{A character that is the data label,
+for a tuple is given by the user and should follow the order (data, label),
+for a dataframe is written as the default "Table"}
+}
+\value{
+JSOn-LD of the dataframe of a tuple
 }
 \description{
-Title
+Writes dataframes and tuples into JSON-LD
+for the internal use
 }

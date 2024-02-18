@@ -1,12 +1,9 @@
 loaded_templates <- new.env()
 
 #' Extractor function for the ORKG templates
-#'
-#' @param template_id
-#'
-#' @return
-#'
-#' @examples
+#' @param template_id The ID of an ORKG template
+#' @return An R object that contains information about the template
+#' and its components for the internal use
 #'
 extractor_orkg <- function(template_id) {
   extract_all <- list()
@@ -65,16 +62,12 @@ extractor_orkg <- function(template_id) {
   return(extract_all)
 }
 
-#' Load reference class(es) for a template and its components
-#'
-#' @param template_id
-#'
-#' @param
-#'
-#' @return reference class(es)
+#' Load reference classes for a template and its components
+#' @param template_id The ID of an ORKG template
+#' @return reference classes for the template and its components
 #' @export
+#' @examples load_reference_classes("R937648")
 #'
-#' @examples
 load_reference_classes <- function(template_id) {
   the$templ_info <- extractor_orkg(template_id)
   result <- list()

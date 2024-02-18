@@ -2,16 +2,20 @@
 % Please edit documentation in R/load_reference_classes.R
 \name{load_reference_classes}
 \alias{load_reference_classes}
-\title{Load reference class(es) for a template and its components}
+\title{Load reference classes for a template and its components}
 \usage{
 load_reference_classes(template_id)
 }
 \arguments{
-\item{template_id}{}
+\item{template_id}{The ID of an ORKG template}
 }
 \value{
-reference class(es)
+reference classes for the template and its components
 }
 \description{
-Load reference class(es) for a template and its components
+Load reference classes for a template and its components
+}
+\examples{
+load_reference_classes("R937648")
+
 }

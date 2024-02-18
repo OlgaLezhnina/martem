@@ -7,7 +7,8 @@
 turn_json_orkg(instance)
 }
 \arguments{
-\item{instance}{}
+\item{instance}{An instance of a reference class
+that is an R object containing active binding}
 }
 \value{
 JSON string
