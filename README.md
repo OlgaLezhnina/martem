@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This is a replacement of the ORKG-R package, will be renamed soon. 
+This is a replacement of the ORKG-R package. 
 The user can load the ORKG templates, create their instances, and write JSON-LD files. 
 The resulting JSON-LD files are suitable for harvesting into the ORKG with Python.
 
