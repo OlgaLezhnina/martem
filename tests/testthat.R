@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(martem)
+library(orkg)
 
-test_check("martem")
+test_check("orkg")

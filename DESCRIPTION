@@ -1,4 +1,4 @@
-Package: martem
+Package: orkg
 Title: Machine Readable Templating
 Version: 0.0.0.9000
 Authors@R: c(
