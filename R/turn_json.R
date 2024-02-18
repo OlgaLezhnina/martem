@@ -79,9 +79,9 @@ differ_type <- function(input) {
 #' @export
 #' @examples tp <- load_reference_classes("R937648")
 #' my_instance <- tp$measurement_scale(label = "my_scale")
-#' my_json <- turn_json_orkg(my_instance)
+#' my_json <- turn_json(my_instance)
 #'
-turn_json_orkg <- function(instance) {
+turn_json <- function(instance) {
   the$uid <- generate_uid()
   context <- list()
   context[["label"]] <- "http://www.w3.org/2000/01/rdf-schema#label"
