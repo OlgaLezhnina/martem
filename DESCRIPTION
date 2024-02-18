@@ -1,5 +1,5 @@
 Package: orkg
-Title: Machine Readable Templating
+Title: tba
 Version: 0.0.0.9000
 Authors@R: c(
     person("Olga", "Lezhnina", , "olga.lezhnina@tib.eu", role = c("aut", "cre"),
