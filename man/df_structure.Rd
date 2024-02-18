@@ -10,12 +10,10 @@ df_structure(df, label)
 \arguments{
 \item{df}{A dataframe or a tuple}
 
-\item{label}{A character that is the data label,
-for a tuple is given by the user and should follow the order (data, label),
-for a dataframe is written as the default "Table"}
+\item{label}{A character string}
 }
 \value{
-JSOn-LD of the dataframe of a tuple
+JSON-LD of the dataframe of a tuple
 }
 \description{
 Writes dataframes and tuples into JSON-LD

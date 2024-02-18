@@ -2,12 +2,12 @@
 % Please edit documentation in R/turn_json_orkg.R
 \name{differ_length}
 \alias{differ_length}
-\title{Recognizes the length of input to apply of lapply a function}
+\title{Recognizes the length of input to apply or lapply a function}
 \usage{
 differ_length(input, func)
 }
 \arguments{
-\item{input}{A single element of a list}
+\item{input}{A single element or a list}
 
 \item{func}{A function to be applied to the input}
 }
@@ -15,5 +15,5 @@ differ_length(input, func)
 The result of the function applied in the differentiated way
 }
 \description{
-Recognizes the length of input to apply of lapply a function
+Recognizes the length of input to apply or lapply a function
 }

@@ -22,10 +22,10 @@ generate_uid <- function() {
   })
 }
 
-#' Title
-#'
+#'Show the fields of a reference class for a template
+#'which can be used to write an instance
 #' @param ref_class A reference class based on a template
-#' @return The string enlisting all fields for writing an instance
+#' @return The string listing all fields for writing an instance
 #' @export
 #' @examples tp <- load_reference_classes("R937648")
 #' show_fields(tp$measurement_scale)

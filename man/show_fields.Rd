@@ -2,7 +2,8 @@
 % Please edit documentation in R/helpers.R
 \name{show_fields}
 \alias{show_fields}
-\title{Title}
+\title{Show the fields of a reference class for a template
+which can be used to write an instance}
 \usage{
 show_fields(ref_class)
 }
@@ -10,10 +11,11 @@ show_fields(ref_class)
 \item{ref_class}{A reference class based on a template}
 }
 \value{
-The string enlisting all fields for writing an instance
+The string listing all fields for writing an instance
 }
 \description{
-Title
+Show the fields of a reference class for a template
+which can be used to write an instance
 }
 \examples{
 tp <- load_reference_classes("R937648")

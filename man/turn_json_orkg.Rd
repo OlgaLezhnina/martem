@@ -7,11 +7,10 @@
 turn_json_orkg(instance)
 }
 \arguments{
-\item{instance}{An instance of a reference class
-that is an R object containing active binding}
+\item{instance}{An instance of a reference class}
 }
 \value{
-JSON string
+JSON string in JSON-LD format
 }
 \description{
 Turn an instance of a reference class into ORKG-harvestable JSON-LD

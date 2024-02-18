@@ -1,10 +1,8 @@
 #' Writes dataframes and tuples into JSON-LD
 #' for the internal use
 #' @param df A dataframe or a tuple
-#' @param label A character that is the data label,
-#' for a tuple is given by the user and should follow the order (data, label),
-#' for a dataframe is written as the default "Table"
-#' @return JSOn-LD of the dataframe of a tuple
+#' @param label A character string
+#' @return JSON-LD of the dataframe of a tuple
 #'
 df_structure <- function(df, label) {
   result <- list()
@@ -46,8 +44,8 @@ df_structure <- function(df, label) {
   return(result)
 }
 
-#' Recognizes the length of input to apply of lapply a function
-#' @param input A single element of a list
+#' Recognizes the length of input to apply or lapply a function
+#' @param input A single element or a list
 #' @param func A function to be applied to the input
 #' @return The result of the function applied in the differentiated way
 #'
@@ -60,12 +58,9 @@ differ_length <- function(input, func) {
   return(output)
 }
 
-#' Recognizes the type of an input as a dataframe, a tuple, or anything else
-#' to check whether the df_structure function should be used,
-#' and if it should, what is the lable of the data
-#' @param input A dataframe, a tuple, or another data type
-#' @return The result, which is a list if the df_structure is not applied,
-#' and the output of the df_structure if it should
+#' Reprocess the input to be used in JSON-LD depending on its type
+#' @param input A dataframe, a tuple, or another basic data type
+#' @return The resulting R object to be used in JSON-LD
 #'
 differ_type <- function(input) {
   if (methods::is(input, "data.frame")) {
@@ -80,8 +75,7 @@ differ_type <- function(input) {
 
 #' Turn an instance of a reference class into ORKG-harvestable JSON-LD
 #' @param instance An instance of a reference class
-#' that is an R object containing active binding
-#' @return JSON string
+#' @return JSON string in JSON-LD format
 #' @export
 #' @examples tp <- load_reference_classes("R937648")
 #' my_instance <- tp$measurement_scale(label = "my_scale")
