@@ -4,5 +4,5 @@ test_that("format_string works", {
 
 test_that("show_fields works", {
   tp <- load_reference_classes("R937648")
-expect_equal(show_fields(tp$measurement_scale), "label")
+  expect_equal(show_fields(tp$measurement_scale), "label")
 })

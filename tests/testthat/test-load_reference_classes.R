@@ -1,7 +1,7 @@
 test_that("extractor_orkg works", {
-  result_extractor = extractor_orkg("R937648")
-  string_representation = capture.output(print(result_extractor))
-  expected = c("$measurement_scale",
+  result_extractor <- extractor_orkg("R937648")
+  string_representation <- capture.output(print(result_extractor))
+  expected <- c("$measurement_scale",
   "$measurement_scale[[1]]",
   "$measurement_scale[[1]][[1]]",
   "      template_name template_class",
@@ -17,9 +17,9 @@ test_that("extractor_orkg works", {
 })
 
 test_that("load_reference_classes works", {
-  result_load = load_reference_classes("R937648")
-  string_load = capture.output(print(result_load))
-  expected_load = c(
+  result_load <- load_reference_classes("R937648")
+  string_load <- capture.output(print(result_load))
+  expected_load <- c(
     "$measurement_scale",
     "Generator for class \"measurement_scale_orkg\":",
     "",

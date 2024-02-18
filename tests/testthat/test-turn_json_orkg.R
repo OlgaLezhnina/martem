@@ -4,11 +4,11 @@ test_that("differ_length works", {
 })
 
 test_that("turn_json_orkg works", {
-  result_load = load_reference_classes("R937648")
+  result_load <- load_reference_classes("R937648")
   my_instance <- result_load$measurement_scale(label = "my_scale")
   json_result <- turn_json_orkg(my_instance)
-  json_string = capture.output(print(json_result))
-  expected_json = c(
+  json_string <- capture.output(print(json_result))
+  expected_json <- c(
     "{",
     "  \"@id\": \"_:n1\",",
     "  \"label\": \"my_scale\",",
