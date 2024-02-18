@@ -40,7 +40,7 @@ tp$measurement_scale
 martem::show_fields(tp$measurement_scale)
 ## write your instance using fields of your choice
 my_instance <- tp$measurement_scale(label = "my_scale")
-## apply a function to write it as a JSON string
+## apply this function to write it as a JSON string
 my_json <- martem::turn_json_orkg(my_instance)
 ## write it as a file
 write(my_json, "my_json.json")
