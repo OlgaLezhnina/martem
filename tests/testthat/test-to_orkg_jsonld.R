@@ -3,10 +3,10 @@ test_that("differ_length works", {
   expect_equal(differ_length(list(4, 9), sqrt), list(2, 3))
 })
 
-test_that("turn_json works", {
+test_that("to_orkg_jsonld works", {
   result_load <- load_reference_classes("R937648")
   my_instance <- result_load$measurement_scale(label = "my_scale")
-  json_result <- turn_json(my_instance)
+  json_result <- to_orkg_jsonld(my_instance)
   json_string <- capture.output(print(json_result))
   expected_json <- c(
     "{",
