@@ -1,2 +1,9 @@
-linters: linters_with_defaults() # see vignette("lintr")
+linters: linters_with_defaults()
 encoding: "UTF-8"
+exclusions: list(
+  "tests/testthat/test-load_reference_classes.R" = list(
+    line_length_linter = Inf,
+    indentation_linter = Inf),
+  "tests/testthat/test-to_orkg_jsonld.R" = list(
+    line_length_linter = Inf,
+    indentation_linter = Inf))
