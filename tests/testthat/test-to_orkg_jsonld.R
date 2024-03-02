@@ -31,8 +31,8 @@ test_that("to_orkg_jsonld works", {
 
 test_that("differ_type works", {
   the$uid <- generate_uid()
-  my_df <- data.frame(c(1,2), c(3,4))
-  colnames(my_df) = c("A", "B")
+  my_df <- data.frame(c(1, 2), c(3, 4))
+  colnames(my_df) <- c("A", "B")
   differ_df <- differ_type(my_df)
   df_string <- capture.output(print(differ_df))
   expected_df <- c(
