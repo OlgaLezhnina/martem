@@ -5,8 +5,7 @@
 <!-- badges: end -->
 
 The orkg package provides the R users with a friendly way to interact with the ORKG API.
-The user can load ORKG templates, create their instances, and write JSON-LD files. 
-The resulting JSON-LD files are suitable for harvesting into the ORKG with Python.
+The user can load ORKG templates, create their instances, and write JSON-LD files suitable for harvesting into the ORKG with Python.
 
 ## Installation
 
