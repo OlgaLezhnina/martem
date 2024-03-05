@@ -18,6 +18,7 @@ You can install the development version of orkg from
 
 ``` r
 # install.packages("devtools")
+library(devtools)
 # from the TIB GitLab
 devtools::install_gitlab("TIBHannover/orkg/orkg-r")
 # or from the maintainer's GitHub
