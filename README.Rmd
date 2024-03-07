@@ -63,3 +63,4 @@ my_result <- orkg::to_orkg_jsonld(my_instance)
 ## write(my_result, "my_result.json")
 ## harvest into the ORKG with Python
 ```
+See how to use the package to produce machine reusable data:  https://orkg.org/help-center/article/47/Machine_reusable_by_design
