@@ -11,7 +11,7 @@ extractor_orkg <- function(template_id) {
     info <-
       request_orkg(paste("/api/templates/", template_id, sep = ""))
     template_name <- format_string(info$label)
-    template_class <- info$target_class
+    template_class <- info$target_class$id
     templ_df <- data.frame(template_name, template_class)
     i <- 0
     all_comps <- data.frame(
